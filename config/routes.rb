@@ -3,16 +3,17 @@ Rails.application.routes.draw do
 
   get 'home'        => 'static_pages#home'
 
-  get 'login'      => 'sessions#new'
+  # get 'login'       => 'sessions#new'
 
-  get 'logout'     => 'sessions#destroy'
+  # get 'logout'      => 'sessions#destroy'
 
-  get 'signup'     => 'users#new'
+  # get 'signup'      => 'users#new'
+
+  get 'about'       => 'static_pages#about'
 
 
-resources :users
-resources :static_pages
-resources :sessions
+resources :users, only: [:index, :new, :create]
+resources :sessions, only: [:new, :create, :destroy]
 resources :twins
 
 end
