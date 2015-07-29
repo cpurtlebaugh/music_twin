@@ -12,6 +12,8 @@ COUNTRIES = [
   "Mexico",
   "Australia",
   "Japan",
+  "Germany",
+  "France"
 ]
 
 def urize(value)

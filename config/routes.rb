@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
-  get 'twins/index'
+  root 'static_pages#welcome'
 
-  get 'sessions/new'
+  get 'static_pages/home' => 'static_pages#home'
+
+  post 'login' => 'sessions#new'
+
+  get 'log_out' => 'sessions#destroy'
+
+  get 'login' => 'sessions#'
+
 
 resources :users
 resources :static_pages
 resources :sessions
 resources :twins
 
-root 'static_pages#home'
 end

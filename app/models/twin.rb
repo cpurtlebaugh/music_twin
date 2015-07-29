@@ -2,15 +2,9 @@ class Twin < ActiveRecord::Base
   serialize :rankings
 
   include PgSearch
-  pg_search_scope :search_name, :against => [:name]
-
-  def self.search(query)
-    if query.present?
-      search(query)
-    else
-      scope
-    end
-  end
+  pg_search_scope :search_by_name, :against => :name, :using => {
+                    :tsearch => {:prefix => true}
+                  }
 end
 
 # full-text search using psql reference material

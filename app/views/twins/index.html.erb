@@ -5,4 +5,19 @@
   <%= submit_tag "Search your twin", name: nil, :class => 'btn btn-search' %>
 <% end %>
 
+<% @twins.each do |twin| %>
+<div class="row">
+<p><%= twin.name %></p>
+    <ul>
+    <% twin.rankings.each do |ranking| %>
+      <div class="col-md-12">
+        <li>City: <%= ranking[:name] %> </li>
+      </div>
+      <div class="cold-md-12">
+        <li>  Rank: <%= ranking[:rank] %></li>
+      </div>
+    <% end %>
+  </ul>
+<% end %>
+
 
