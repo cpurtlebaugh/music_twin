@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
       if user && user.authenticate(params[:password])
-        session[:user_id] = @user.id
-        redirect_to static_pages_home_path, :notice => "Logged in!"
+        session[:user_id] = user.id
+        redirect_to home_path, :notice => "welcome #{@user.name} you're logged in"
       else
         flash.now.alert = "Invalid login credentials"
         render 'new'
