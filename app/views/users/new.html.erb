@@ -1,7 +1,7 @@
 <h1>Sign Up!</h1>
 <p>Want to figure out your user markets?</p>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, html {:class => "form-horizontal", :role => "form"} do |f| %>
   <ul>
     <li> <%= f.label :first_name %> </li>
     <li><%= f.text_field :first_name , :placeholder => "First Name" %> </li>

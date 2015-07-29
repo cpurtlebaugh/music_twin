@@ -1,3 +1,5 @@
+
+
 require "httparty"
 
 API_KEY = ENV["LASTFM_API_KEY"]
@@ -7,7 +9,9 @@ COUNTRIES = [
   "United States",
   "Canada",
   "United Kingdom",
-  "Mexico"
+  "Mexico",
+  "Australia",
+  "Japan",
 ]
 
 def urize(value)
@@ -15,7 +19,7 @@ def urize(value)
 end
 
 def get_metro_uri(metro)
-  GET_METROS_URI + "&country=#{urize metro}&api_key=#{API_KEY}&format=json" 
+  GET_METROS_URI + "&country=#{urize metro}&api_key=#{API_KEY}&format=json"
 end
 
 def get_metro_list(country)
@@ -40,7 +44,7 @@ def get_metro_artist_uri(metro)
 end
 
 def get_metro_artist_list(metro)
-  # TODO: Washington DC, Montreal, Quebec and Mexico City all fail... 
+  # TODO: Washington DC, Montreal, Quebec and Mexico City all fail...
   #       Identify the problem!
 
   # metro["name"].gsub! /Montreal/, "Montréal"
@@ -51,7 +55,7 @@ def get_metro_artist_list(metro)
     puts "  ERROR: Metro artist unavailable."
   else
     value = value["topartists"]["artist"]
-    value.map do |artist| 
+    value.map do |artist|
       {
         :name => artist["name"],
         :mbid => artist["mbid"],
@@ -98,7 +102,7 @@ metros.each do |metro|
   unless artists.nil?
     artists.each_with_index do |artist, i|
       # puts "-> #{metro["name"]} #{metro["country"]} #{i+1}. #{artist[:name]} #{master_artists_includes?(master_artists, artist)}"
-      
+
       unless master_artists_includes?(master_artists, artist)
         artist[:rankings] = []
         master_artists << artist
