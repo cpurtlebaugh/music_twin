@@ -5,6 +5,8 @@ class Twin < ActiveRecord::Base
   pg_search_scope :search_by_name, :against => :name, :using => {
                     :tsearch => {:prefix => true}
                   }
+
+  has_and_belongs_to_many :users
 end
 
 # full-text search using psql reference material

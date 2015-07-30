@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728224529) do
+ActiveRecord::Schema.define(version: 20150730001044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "campaigns", force: :cascade do |t|
+    t.string   "name"
+    t.string   "twin_id"
+    t.string   "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
@@ -35,6 +43,16 @@ ActiveRecord::Schema.define(version: 20150728224529) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "twins_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "twin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "twins_users", ["twin_id"], name: "index_twins_users_on_twin_id", using: :btree
+  add_index "twins_users", ["user_id"], name: "index_twins_users_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -44,4 +62,6 @@ ActiveRecord::Schema.define(version: 20150728224529) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "twins_users", "twins"
+  add_foreign_key "twins_users", "users"
 end

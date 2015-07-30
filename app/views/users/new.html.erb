@@ -1,8 +1,10 @@
+<%= render '/shared/header' %>
 <h1>Sign Up!</h1>
 <p>Want to figure out your user markets?</p>
 
 <%= form_for @user do |f| %>
   <ul>
+    <li><% render 'shared/error_messages'%></li>
     <li> <%= f.label :first_name %> </li>
     <li><%= f.text_field :first_name , :placeholder => "First Name" %> </li>
 

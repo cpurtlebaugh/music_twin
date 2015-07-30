@@ -132,3 +132,11 @@ artists.each do |artist|
   puts artist[:name] + "..."
   Twin.create(artist)
 end
+
+User.new(
+  first_name: "Cassie",
+  last_name: "P",
+  email: "123@123.com",
+  password: "123",
+  password_confirmation: "123"
+).save

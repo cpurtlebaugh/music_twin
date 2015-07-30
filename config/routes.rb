@@ -1,19 +1,30 @@
 Rails.application.routes.draw do
-  root              'static_pages#welcome'
+
+  root 'static_pages#welcome'
 
   get 'home'        => 'static_pages#home'
 
-  # get 'login'       => 'sessions#new'
+  get 'login'       => 'sessions#new'
 
-  # get 'logout'      => 'sessions#destroy'
+  post 'login'      => 'sessions#create'
 
-  # get 'signup'      => 'users#new'
+  delete 'logout'      => 'sessions#destroy'
+
+  get 'signup'      => 'users#new'
 
   get 'about'       => 'static_pages#about'
 
 
-resources :users, only: [:index, :new, :create]
-resources :sessions, only: [:new, :create, :destroy]
-resources :twins
+
+  # post 'relationship' => 'users#add_twin'
+
+
+  resources :users, only: [:index, :new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :twins do
+    member do
+      post "add"
+    end
+  end
 
 end
