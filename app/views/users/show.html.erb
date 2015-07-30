@@ -6,8 +6,10 @@
 <% @user.twins.each do |twin| %>
   <ul>
   <li><%= twin.name %> <%= button_to "Remove", remove_twin_path(twin) %></li>
+  <li><img src="<%= twin.image_uri %>"></li>
+      <% twin.rankings.each do |ranking| %>
+        <li><%= ranking[:country] %>, <%= ranking[:name] %> #<%= ranking[:rank] %></li>
+      <% end %>
   </ul>
-    <img src="<%= twin.image_uri %>">
 <% end %>
-
 <%= render '/shared/footer' %>

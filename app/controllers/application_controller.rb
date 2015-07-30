@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :logged_in?
   helper_method :log_in
+  helper_method :current_twin
 
   # logs in new current user.
   def log_in(user)
@@ -15,6 +16,10 @@ class ApplicationController < ActionController::Base
   # checks if current user is logged in, if not returns false
   def logged_in?
     !current_user.nil?
+  end
+
+  def current_twin
+    current_user.twins.find(params[:id])
   end
 
 
