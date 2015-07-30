@@ -13,8 +13,13 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to home_path
     else
+      flash[:error] = "Invalid login credentials"
       render 'new'
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def delete
