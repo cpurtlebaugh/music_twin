@@ -7,6 +7,7 @@
   <ul>
   <li><%= twin.name %> <%= button_to "Remove", remove_twin_path(twin) %></li>
   </ul>
+    <img src="<%= twin.image_uri %>">
 <% end %>
 
 <%= render '/shared/footer' %>
