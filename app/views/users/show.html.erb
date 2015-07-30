@@ -1,5 +1,12 @@
 <%= render '/shared/header' %>
 
-<h3><a href="/twins">Search Twins</a><h3>
+<h4><a href="/twins">Search Twins</a><h3>
+
+<h3> Your Current Twins </h3>
+<% @user.twins.each do |twin| %>
+  <ul>
+  <li><%= twin.name %> <%= button_to "Remove", remove_twin_path(twin) %></li>
+  </ul>
+<% end %>
 
 <%= render '/shared/footer' %>

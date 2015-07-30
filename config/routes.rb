@@ -16,13 +16,14 @@ Rails.application.routes.draw do
 
 
 
-  # post 'relationship' => 'users#add_twin'
-
-
   resources :users, only: [:index, :new, :create, :show]
   resources :twins do
     member do
       post "add"
+    end
+
+    member do
+      post "remove"
     end
   end
 

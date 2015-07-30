@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
   end
 
+
+
   private
 
   def current_user
