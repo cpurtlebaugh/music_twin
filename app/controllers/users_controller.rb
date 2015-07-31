@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     else
       flash[:error] = "Invalid login credentials"
       render 'new'
@@ -22,12 +23,21 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def show
-    @user = User.find_by(params[:user_id])
+  def update
+    if current_user.update_attributes(user_params)
+      redirect_to user_path(current_user)
+    else
+      render 'edit'
+    end
   end
 
-  def delete
-    @user = User.find(params[:id]).destroy
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    session[:user_id] = nil
     redirect_to root_path
   end
 

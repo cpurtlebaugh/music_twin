@@ -17,11 +17,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :users, only: [:index, :new, :create, :show, :edit] do
-    member do
-      post "update"
-    end
-  end
+  resources :users
 
   resources :twins do
     member do

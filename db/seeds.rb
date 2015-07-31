@@ -4,7 +4,7 @@ require "httparty"
 
 API_KEY = ENV["LASTFM_API_KEY"]
 
-GET_METROS_URI = "http://ws.audioscrobbler.com/2.0/?method=geo.getmetros"
+GET_METROS_URI = "https://ws.audioscrobbler.com/2.0/?method=geo.getmetros"
 COUNTRIES = [
   "United States",
   "Canada",
@@ -133,6 +133,8 @@ artists.each do |artist|
   Twin.create(artist)
 end
 
+User.destroy_all
+
 User.new(
   first_name: "Cassie",
   last_name: "P",
@@ -140,3 +142,5 @@ User.new(
   password: "123",
   password_confirmation: "123"
 ).save
+
+

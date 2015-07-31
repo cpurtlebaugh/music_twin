@@ -9,12 +9,12 @@ class TwinsController < ApplicationController
     unless current_user.twins.include? twin
       current_user.twins << twin
     end
-    redirect_to user_path
+    redirect_to user_path(current_user)
   end
 
   def remove
-    current_user.twins.find(params[:id]).destroy
-    redirect_to user_path
+    current_user.twins.delete(Twin.find(params[:id]))
+    redirect_to user_path(current_user)
   end
 
 end
