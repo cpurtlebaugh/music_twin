@@ -7,16 +7,17 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
+  <body>
+    <div class="container">
+    <!-- ## flash message method -->
+        <div class="panel-footer">
+          <% flash.each do |name, message| %>
+          <%= message %>
+          <% end %>
+        </div>
 
-<!-- ## flash message method -->
-    <div class="panel-footer">
-      <% flash.each do |name, message| %>
-      <%= message %>
-      <% end %>
+    <%= yield %>
+
     </div>
-
-<%= yield %>
-
-</body>
+  </body>
 </html>

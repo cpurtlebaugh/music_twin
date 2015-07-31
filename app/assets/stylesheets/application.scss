@@ -2,6 +2,10 @@ li {
   list-style-type: none;
 }
 
+.container {
+  overflow-y: scroll;
+}
+
 /*
  *= require_tree .
  *= require_self
