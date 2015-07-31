@@ -1,2 +1,22 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<%= render "/shared/header" %>
+<%= form_for @user user_path method: :post do |f| %>
+  <ul>
+    <li> <%= f.label :first_name %> </li>
+    <li><%= f.text_field :first_name , :placeholder => "First Name", class: 'form-control'%> </li>
+
+    <li><%= f.label :last_name %></li>
+    <li><%= f.text_field :last_name , :placeholder => "Last Name", class: 'form-control'%></li>
+
+    <li><%= f.label :email %></li>
+    <li><%= f.text_field :email , :placeholder => "Email", class: 'form-control'%></li>
+
+    <li><%= f.label :password %></li>
+    <li><%= f.password_field :password , :placeholder => "Password", class: 'form-control'%></li>
+
+    <li><%= f.label :password_confirmation, 'Confirmation' %></li>
+    <li><%= f.password_field :password_confirmation , :placeholder => "Confirm Password", class: 'form-control' %></li>
+
+    <li><%= f.submit %></li>
+  </ul>
+
+<% end %>

@@ -16,7 +16,13 @@ Rails.application.routes.draw do
 
 
 
-  resources :users, only: [:index, :new, :create, :show]
+
+  resources :users, only: [:index, :new, :create, :show, :edit] do
+    member do
+      post "update"
+    end
+  end
+
   resources :twins do
     member do
       post "add"
