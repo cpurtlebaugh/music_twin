@@ -4,6 +4,8 @@
 
 # API_KEY = ENV["LASTFM_API_KEY"]
 
+## metros that are being defined / selected to make the api request on
+
 # GET_METROS_URI = "https://ws.audioscrobbler.com/2.0/?method=geo.getmetros"
 # COUNTRIES = [
 #   "United States",
@@ -16,18 +18,22 @@
 #   "France"
 # ]
 
+## encoding the url response all to lowercase
 # def urize(value)
 #   URI.encode(value.downcase)
 # end
 
+## ensures downcase for all returned data via api
 # def get_metro_uri(metro)
 #   GET_METROS_URI + "&country=#{urize(metro)}&api_key=#{API_KEY}&format=json"
 # end
 
+## request country metro list
 # def get_metro_list(country)
 #   value = HTTParty.get get_metro_uri(country)
 #   value["metros"]["metro"]
 # end
+
 
 # def get_current_metro_list
 #   metros = []
@@ -46,12 +52,15 @@
 # end
 
 # def get_metro_artist_list(metro)
-#   # TODO: Washington DC, Montreal, Quebec and Mexico City all fail...
+#
+# TODO: Washington DC, Montreal, Quebec and Mexico City all fail...
 #   #       Identify the problem!
 
+## attempt to substitute failed cities
 #   # metro["name"].gsub! /Montreal/, "Montréal"
 #   # metro["name"].gsub! /Quebec/, "Québec"
 
+## specifies the failed cities
 #   value = HTTParty.get get_metro_artist_uri(metro)
 #   if value["topartists"]["artist"].nil?
 #     puts "  ERROR: Metro artist unavailable."

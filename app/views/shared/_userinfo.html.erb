@@ -1,1 +1,23 @@
-_userinfo.html.erb
+<!-- ## sign up form / edit form to keep app DRY, rendered on users edit and new view -->
+
+<%= form_for @user do |f| %>
+  <ul>
+    <li> <%= f.label :first_name %> </li>
+    <li><%= f.text_field :first_name , :placeholder => "First Name", class: 'form-control'%> </li>
+
+    <li><%= f.label :last_name %></li>
+    <li><%= f.text_field :last_name , :placeholder => "Last Name", class: 'form-control'%></li>
+
+    <li><%= f.label :email %></li>
+    <li><%= f.text_field :email , :placeholder => "Email", class: 'form-control'%></li>
+
+    <li><%= f.label :password %></li>
+    <li><%= f.password_field :password , :placeholder => "Password", class: 'form-control'%></li>
+
+    <li><%= f.label :password_confirmation, 'Confirmation' %></li>
+    <li><%= f.password_field :password_confirmation , :placeholder => "Confirm Password", class: 'form-control' %></li>
+
+    <li><%= f.submit %></li>
+  </ul>
+
+<% end %>
