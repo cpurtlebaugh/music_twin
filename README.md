@@ -29,33 +29,33 @@ To visit the app: https://stark-brushlands-5281.herokuapp.com/
 
 ## Unsolved
 
-[X]The body needs to scroll down because all of the contents are showing
+[x]The body needs to scroll down because all of the contents are showing
 
- - Either keep the footer (using it to display flash messages), or render them elsewhere
+- Either keep the footer (using it to display flash messages), or render them elsewhere
 
 - CSS is lacking
 
 #### MVP
 
-X
+[x]
 As a new user I'd like to be able to visit a page to learn more about this web app
 
-X
+[x]
 As a new user I'd like to be able to sign up / create an account.
 
-X
+[x]
 As a user I'd like to be able to login to my personal account so I don't have to regenerate analytics every time.
 
-X
+[x]
 As a user I'd like to be able to create “twins” for my like-artists.
 
-X
+[x]
 As a user I'd like to be able to change/modify my twins in case I mistyped info.
 
-X
+[x]
 As a user I'd like to be able to delete twins in case I want to change my audience target.
 
-X
+[x]
 As a user I'd like the site to be easy to use and intuitive.
 
 #### ICEBOX
