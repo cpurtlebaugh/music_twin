@@ -34,7 +34,7 @@
 #   value["metros"]["metro"]
 # end
 
-
+## grabs metro list
 # def get_current_metro_list
 #   metros = []
 #   COUNTRIES.each do |country|
@@ -44,7 +44,7 @@
 # end
 
 # ------------------------------
-
+## requests metro artists
 # GET_METRO_ARTISTS_URI = "http://ws.audioscrobbler.com/2.0/?method=geo.getmetroartistchart"
 
 # def get_metro_artist_uri(metro)
@@ -52,7 +52,7 @@
 # end
 
 # def get_metro_artist_list(metro)
-#
+
 # TODO: Washington DC, Montreal, Quebec and Mexico City all fail...
 #   #       Identify the problem!
 
@@ -60,7 +60,7 @@
 #   # metro["name"].gsub! /Montreal/, "Montréal"
 #   # metro["name"].gsub! /Quebec/, "Québec"
 
-## specifies the failed cities
+## specifies the failed cities if failed and stores top artists in artist variable
 #   value = HTTParty.get get_metro_artist_uri(metro)
 #   if value["topartists"]["artist"].nil?
 #     puts "  ERROR: Metro artist unavailable."
@@ -78,7 +78,7 @@
 # end
 
 # ------------------------------
-
+## loops through metro list and stores as metro, writes to yml file
 # metros = get_current_metro_list.map do |metro|
 #   puts metro["name"]
 #   metro["artists"] = get_metro_artist_list(metro)
@@ -90,6 +90,7 @@
 # ------------------------------
 
 metros = YAML.load_file("db/metros.yml")
+
 
 master_artists = []
 
@@ -105,6 +106,7 @@ def master_artists_find(master_artists, artist_hash)
   end
 end
 
+## converts the metro data to list artists and their metros
 # THE OLLLLDDDD SWITCHEROOOOO
 puts "", "Performing the old switcheroo"
 
@@ -129,6 +131,7 @@ File.write("db/artists.yml", master_artists.to_yaml)
 
 # --------------------------------
 
+## creates twin db based on yaml file info
 master_artists = YAML.load_file "db/artists.yml"
 
 artists = master_artists
@@ -142,6 +145,7 @@ artists.each do |artist|
   Twin.create(artist)
 end
 
+## test user destroy all to make sure duplicates don't happen when seeding
 User.destroy_all
 
 User.new(
