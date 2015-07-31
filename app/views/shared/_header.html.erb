@@ -1,8 +1,12 @@
+<!-- ## shared header to keep app DRY -->
+
 <div class="container">
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <nav>
       <ul class="nav navbar-nav nav-bar-right">
+
+<!-- ## embedded ruby conditionals to change nav bar display based upon a user being logged in or out -->
 
           <% if logged_in? %>
             <li><%= link_to "Home", user_path(current_user.id) %></li>
