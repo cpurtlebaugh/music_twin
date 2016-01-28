@@ -5,12 +5,42 @@
 
 <h3> Your Current Twins </h3>
 <% @user.twins.each do |twin| %>
-  <ul>
-  <li><%= twin.name %> <%= button_to "Remove", remove_twin_path(twin) %></li>
-  <li><img src="<%= twin.image_uri %>"></li>
-      <% twin.rankings.each do |ranking| %>
-        <li><%= ranking[:country] %>, <%= ranking[:name] %> #<%= ranking[:rank] %></li>
-      <% end %>
+  <ul class="list-inline">
+    <li>
+      <!-- twin name -->
+      <%= twin.name %>
+
+      <!-- twin image -->
+          <img src="<%= twin.image_uri %>">
+
+      <!-- remove twin -->
+          <button class="btn btn-primary">
+            <div class="submit-button">
+              <%= button_to "Remove", remove_twin_path(twin) %>
+            </div>
+          </button>
+
+      <!-- show markets button -->
+          <button class="btn btn-warning" onclick="$('#show').toggle();">
+            Show Twin
+          </button>
+
+      <!-- markets list -->
+        <ul>
+          <div>
+            <% twin.rankings.each do |ranking| %>
+              <li id="show" style="display:none">
+                <%= ranking[:country] %>,
+                <%= ranking[:name] %>
+                #<%= ranking[:rank] %>
+              </li>
+            <% end %>
+          </div>
+        </ul>
+      </li>
   </ul>
+<br>
 <% end %>
+<br>
+<br>
 <%= render '/shared/footer' %>

@@ -3,23 +3,34 @@
 <%= render '/shared/header' %>
 
 <div class="form-group">
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
 
-    <%= form_tag login_path do %>
-    <ul>
-      <li><h1>Login</h1></li>
-      <li><%= label_tag :email %></li>
-      <li><%= text_field_tag :email %></li>
+      <%= form_tag login_path do %>
+      <ul class="list">
+        <li><h1>Login</h1></li>
+        <li><%= label_tag :email %></li>
+        <li><%= text_field_tag :email %></li>
 
-      <li><%= label_tag :password  %></li>
-      <li ><%= password_field_tag :password %></li>
+        <li><%= label_tag :password  %></li>
+        <li ><%= password_field_tag :password %></li>
 
-      <li><%= submit_tag 'Login' %></li>
-    <% end %>
-    </ul>
+        <br>
+
+        <li>
+          <button class="btn btn-primary">
+            <div class="submit-button">
+              <%= submit_tag 'Login' %>
+            </div>
+          </button>
+        </li>
+      <% end %>
+      </ul>
+    </div>
   </div>
 </div>
-</div>
+
+<br>
+<br>
 
 <%= render '/shared/footer' %>

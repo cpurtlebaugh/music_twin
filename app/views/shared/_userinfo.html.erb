@@ -1,23 +1,35 @@
 <!-- ## sign up form / edit form to keep app DRY, rendered on users edit and new view -->
 
-<%= form_for @user do |f| %>
-  <ul>
-    <li> <%= f.label :first_name %> </li>
-    <li><%= f.text_field :first_name , :placeholder => "First Name", class: 'form-control'%> </li>
+<div class="col-sm-10">
+    <%= form_for @user do |f| %>
+      <ul>
+        <li> <%= f.label :first_name %> </li>
+        <li><%= f.text_field :first_name , :placeholder => "First Name", class: 'form-control'%> </li>
 
-    <li><%= f.label :last_name %></li>
-    <li><%= f.text_field :last_name , :placeholder => "Last Name", class: 'form-control'%></li>
+        <li><%= f.label :last_name %></li>
+        <li><%= f.text_field :last_name , :placeholder => "Last Name", class: 'form-control'%></li>
 
-    <li><%= f.label :email %></li>
-    <li><%= f.text_field :email , :placeholder => "Email", class: 'form-control'%></li>
+        <li><%= f.label :email %></li>
+        <li><%= f.text_field :email , :placeholder => "Email", class: 'form-control'%></li>
 
-    <li><%= f.label :password %></li>
-    <li><%= f.password_field :password , :placeholder => "Password", class: 'form-control'%></li>
+        <li><%= f.label :password %></li>
+        <li><%= f.password_field :password , :placeholder => "Password", class: 'form-control'%></li>
 
-    <li><%= f.label :password_confirmation, 'Confirmation' %></li>
-    <li><%= f.password_field :password_confirmation , :placeholder => "Confirm Password", class: 'form-control' %></li>
+        <li><%= f.label :password_confirmation, 'Confirmation' %></li>
+        <li><%= f.password_field :password_confirmation , :placeholder => "Confirm Password", class: 'form-control' %></li>
+        <br>
+        <li>
+            <div class="submit-button">
+                <button class="btn btn-primary"><%= f.submit %>
+                </button>
+            </div>
+        </li>
+      </ul>
+    <% end %>
+    <br><br><br><br>
+</div>
 
-    <li><%= f.submit %></li>
-  </ul>
 
-<% end %>
+
+
+<%= render '/shared/footer' %>

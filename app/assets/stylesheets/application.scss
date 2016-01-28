@@ -2,9 +2,24 @@ li {
   list-style-type: none;
 }
 
-.container {
-  overflow-y: scroll;
+
+html {
+  height: 100%;
+  margin: auto;
+  width: 960px;
+  // overflow: auto;
+  // margin: 0;
+  // padding: 0;
 }
+
+.submit-button input {
+  background-color: transparent;
+  border-style: none;
+}
+
+// .in {
+//   background-color: white;
+// }
 
 /*
  *= require_tree .
