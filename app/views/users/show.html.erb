@@ -10,8 +10,10 @@
       <!-- twin name -->
       <%= twin.name %>
 
+      <br>
+
       <!-- twin image -->
-          <img src="<%= twin.image_uri %>">
+          <!-- <img src="<%= twin.image_uri %>"> -->
 
       <!-- remove twin -->
           <button class="btn btn-primary">
@@ -27,13 +29,13 @@
 
       <!-- markets list -->
         <ul>
-          <div>
+          <div id="show" style="display:none">
             <% twin.rankings.each do |ranking| %>
-              <li id="show" style="display:none">
-                <%= ranking[:country] %>,
-                <%= ranking[:name] %>
-                #<%= ranking[:rank] %>
-              </li>
+                <li>
+                  <%= ranking[:country] %>,
+                  <%= ranking[:name] %>
+                  #<%= ranking[:rank] %>
+                </li>
             <% end %>
           </div>
         </ul>
