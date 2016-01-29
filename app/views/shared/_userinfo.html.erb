@@ -14,22 +14,24 @@
         <li><%= f.label :password %></li>
         <li><%= f.password_field :password , :placeholder => "Password", class: 'form-control'%></li>
 
-        <li><%= f.label :password_confirmation, 'Confirmation' %></li>
-        <li><%= f.password_field :password_confirmation , :placeholder => "Confirm Password", class: 'form-control' %></li>
-        <br>
         <li>
-            <% if logged_in? %>
-                <li>
-                    <button class="btn btn-primary">
-                        <div class="submit-button">
-                            <%= f.submit %>
-                        </div>
-                        Save
-                    </button>
-                </li>
+            <li><%= f.label :password_confirmation, 'Confirmation' %></li>
+        <li><%= f.password_field :password_confirmation , :placeholder => "Confirm Password", class: 'form-control' %>
+        </li>
 
-                <% else %>
-                <li>
+        <br>
+        <% if logged_in? %>
+            <li>
+                <button class="btn btn-primary">
+                    <div class="submit-button">
+                        <%= f.submit %>
+                    </div>
+                    Save
+                </button>
+            </li>
+
+            <% else %>
+                <br>
                     <button class="btn btn-primary">
                         <div class="submit-button">
                             <%= f.submit %>
@@ -37,9 +39,7 @@
                         Signup
                     </button>
                 </li>
-            <% end %>
-
-        </li>
+        <% end %>
       </ul>
     <% end %>
 
