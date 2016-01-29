@@ -18,12 +18,27 @@
         <li><%= f.password_field :password_confirmation , :placeholder => "Confirm Password", class: 'form-control' %></li>
         <br>
         <li>
-            <button class="btn btn-primary">
-                <div class="signup-button">
-                    <%= f.submit %>
-                </div>
-                Signup
-            </button>
+            <% if logged_in? %>
+                <li>
+                    <button class="btn btn-primary">
+                        <div class="submit-button">
+                            <%= f.submit %>
+                        </div>
+                        Save
+                    </button>
+                </li>
+
+                <% else %>
+                <li>
+                    <button class="btn btn-primary">
+                        <div class="submit-button">
+                            <%= f.submit %>
+                        </div>
+                        Signup
+                    </button>
+                </li>
+            <% end %>
+
         </li>
       </ul>
     <% end %>
