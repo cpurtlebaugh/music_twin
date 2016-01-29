@@ -1,20 +1,24 @@
-@import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
 
-$primary-font: 'Oswald', sans-serif;
+$primary-font: 'Roboto Condensed', sans-serif;
 
 
-html, body, h1 {
-  font: $primary-font;
+html, body, .container, h1, p {
+  font-family: $primary-font;
+}
+
+html {
+  height: 100%;
 }
 
 li {
   list-style-type: none;
 }
 
-
-html {
-  height: 100%;
+.nav, li, a {
+  font-size: 20px;
 }
+
 
 
 .submit-button input {
@@ -24,6 +28,7 @@ html {
 }
 
 .main-page {
+
   position: relative;
   color: orange;
   font-weight: bold;
@@ -45,13 +50,10 @@ html {
 
 .signup-button {
     padding-top: 10%;
-}
-
-.copyright {
-  float: right;
-  p {
-    margin-top: 10%;
-  }
+    font-size: 20px;
+    p {
+      font-size: 30px;
+    }
 }
 
 @media (max-width: 900px) {
@@ -64,6 +66,17 @@ html {
   .signup-button {
     padding-top: 30%;
   }
+}
+
+.copyright {
+  float: right;
+  p {
+    margin-top: 10%;
+  }
+}
+
+.flash-msg {
+  color: red;
 }
 
 

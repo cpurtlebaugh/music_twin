@@ -1,8 +1,10 @@
 <!-- ## shared footer to keep app DRY -->
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <span class="flash-msg">
       <% flash.each do |name, message| %>
-      <%= message %>
+        <%= message %>
       <% end %>
+    </span>
       <div class="copyright">
         <p>&copy c.purtlebaugh</p>
       </div>
