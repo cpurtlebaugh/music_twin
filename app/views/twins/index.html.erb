@@ -4,7 +4,7 @@
 <!-- ## form tag to invoke the twin query search  -->
 <%= form_tag twins_path, method: :get do %>
   <%= text_field_tag :query, params[:query], :class => "Search Box" %>
-  <%= submit_tag "Search your twin", name: nil, :class => 'btn btn-warning' %>
+  <%= submit_tag "Search for twins", name: nil, :class => 'btn btn-warning' %>
 <% end %>
 
 <br>

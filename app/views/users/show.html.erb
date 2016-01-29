@@ -1,16 +1,19 @@
 <!-- ## displays user's twin on their home page -->
 <%= render '/shared/header' %>
 
-<h4><a href="/twins">Search Twins</a><h3>
+<a href="/twins">
+  <button class="btn btn-warning btn-lg">
+    Search Twins
+  </button>
+</a>
+<br>
 
-<h3> Your Current Twins </h3>
+<h1> YOUR TWINS </h1>
 <% @user.twins.each do |twin| %>
   <ul class="list-inline">
     <li>
       <!-- twin name -->
-      <%= twin.name %>
-      <%= twin.id %>
-      <br>
+      <h3><%= twin.name %></h3>
 
       <!-- markets list -->
         <ul class="row list-inline col-sm-12">
