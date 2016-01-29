@@ -131,29 +131,29 @@
 
 # # --------------------------------
 
-# ## creates twin db based on yaml file info
-# master_artists = YAML.load_file "db/artists.yml"
+## creates twin db based on yaml file info
+master_artists = YAML.load_file "db/artists.yml"
 
-# artists = master_artists
+artists = master_artists
 
-# puts "", "Saving artists to DB", ""
+puts "", "Saving artists to DB", ""
 
-# Twin.destroy_all
+Twin.destroy_all
 
-# artists.each do |artist|
-#   puts artist[:name] + "..."
-#   Twin.create(artist)
-# end
+artists.each do |artist|
+  puts artist[:name] + "..."
+  Twin.create(artist)
+end
 
-# ## test user destroy all to make sure duplicates don't happen when seeding
-# User.destroy_all
+## test user destroy all to make sure duplicates don't happen when seeding
+User.destroy_all
 
-# User.new(
-#   first_name: "Cassie",
-#   last_name: "P",
-#   email: "123@123.com",
-#   password: "123",
-#   password_confirmation: "123"
-# ).save
+User.new(
+  first_name: "Cassie",
+  last_name: "P",
+  email: "123@123.com",
+  password: "123",
+  password_confirmation: "123"
+).save
 
 
