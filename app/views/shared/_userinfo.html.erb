@@ -1,6 +1,5 @@
 <!-- ## sign up form / edit form to keep app DRY, rendered on users edit and new view -->
 
-<div class="col-sm-10">
     <%= form_for @user do |f| %>
       <ul>
         <li> <%= f.label :first_name %> </li>
@@ -19,17 +18,16 @@
         <li><%= f.password_field :password_confirmation , :placeholder => "Confirm Password", class: 'form-control' %></li>
         <br>
         <li>
-            <div class="submit-button">
-                <button class="btn btn-primary"><%= f.submit %>
-                </button>
-            </div>
+            <button class="btn btn-primary">
+                <div class="signup-button">
+                    <%= f.submit %>
+                </div>
+                Signup
+            </button>
         </li>
       </ul>
     <% end %>
-    <br><br><br><br>
-</div>
 
-
-
+<br><br><br><br>
 
 <%= render '/shared/footer' %>

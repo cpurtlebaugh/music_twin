@@ -1,3 +1,5 @@
+
+
 li {
   list-style-type: none;
 }
@@ -5,11 +7,6 @@ li {
 
 html {
   height: 100%;
-  margin: auto;
-  width: 960px;
-  // overflow: auto;
-  // margin: 0;
-  // padding: 0;
 }
 
 .submit-button input {
@@ -17,14 +14,33 @@ html {
   border-style: none;
 }
 
-// .in {
-//   background-color: white;
-// }
+.main-page {
+  position: relative;
+  color: orange;
+  font-weight: bold;
+  height: 400px;
+  background-image: url('http://sketchthemes.com/samples/irex-music-band-demo/wp-content/uploads/sites/30/2013/03/bigstock_silhouettes_of_concert_crowd_i_1565261621-11.jpg');
+}
 
-/*
- *= require_tree .
- *= require_self
- */
+.signup-row {
+  h1, p {
+  padding-left: 40px;
+  }
+}
+
+.login-input {
+  input {
+    border-radius: 5px;
+  }
+}
+
+.signup-button {
+  margin-top: 20%;
+  position: absolute;
+}
+
+
+
 
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
